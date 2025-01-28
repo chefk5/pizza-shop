@@ -1,6 +1,6 @@
 package org.chefk5.pizzashop.user;
 
-import org.chefk5.pizzashop.controller.UserController;
+import org.chefk5.pizzashop.controller.CustomerController;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -14,7 +14,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 //import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 //import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@WebMvcTest(UserController.class)
+@WebMvcTest(CustomerController.class)
 public class UserControllerUnitTest {
 
     @Autowired
