@@ -47,4 +47,18 @@ public class CustomerService {
 
 
     }
+
+    public UserResponseDto updateCustomer(Long id, UserRequest userRequest) {
+        Customer customer = customerRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Customer not found"));
+        customer.setUsername(userRequest.username());
+        customer.setEmail(userRequest.email());
+        customer.setPassword(userRequest.password());
+        customerRepository.saveAndFlush(customer);
+        return toUserResponseDto(customer);
+    }
+
+    public void deleteCustomer(Long id) {
+        Customer customer = customerRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Customer not found"));
+        customerRepository.delete(customer);
+    }
 }
