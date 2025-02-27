@@ -7,7 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/customer/")
 public class CustomerController {
 
     private final CustomerService customerService;
@@ -21,13 +21,13 @@ public class CustomerController {
         return ResponseEntity.ok("Hello World");
     }
 
-    @GetMapping("/customer/{id}")
+    @GetMapping("{id}")
     public ResponseEntity<UserResponseDto> getCustomer(@PathVariable Long id) {
         UserResponseDto userResponseDto = customerService.findCustomerById(id);
         return ResponseEntity.ok(userResponseDto);
     }
 
-    @PostMapping("/customer")
+    @PostMapping
     public ResponseEntity<UserResponseDto> addCustomer(@RequestBody UserRequest userRequest) {
         UserResponseDto userResponseDto = customerService.addCustomer(userRequest);
         return ResponseEntity.ok(userResponseDto);

@@ -29,9 +29,9 @@ public class Customer {
     @Column(nullable = false)
     private String password;
 
-    @OneToOne(mappedBy = "customer", cascade = CascadeType.ALL)
-    @PrimaryKeyJoinColumn
-    private Coupon coupon;
+//    @OneToOne(mappedBy = "customer", cascade = CascadeType.ALL)
+//    @PrimaryKeyJoinColumn
+//    private Coupon coupon;
 }
 
 
