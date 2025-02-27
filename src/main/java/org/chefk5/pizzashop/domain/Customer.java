@@ -28,6 +28,10 @@ public class Customer {
     // TODO: Add hashing
     @Column(nullable = false)
     private String password;
+
+    @OneToOne(mappedBy = "customer", cascade = CascadeType.ALL)
+    @PrimaryKeyJoinColumn
+    private Coupon coupon;
 }
 
 
