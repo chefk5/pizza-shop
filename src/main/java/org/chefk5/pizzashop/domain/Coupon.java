@@ -1,9 +1,6 @@
 package org.chefk5.pizzashop.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -22,9 +19,9 @@ public class Coupon {
 
     private String code;
 
-//    @OneToOne
-//    @JoinColumn(name = "customer_id", nullable = false, referencedColumnName = "id")
-//    private Customer customer;
+    @OneToOne
+    @JoinColumn(name = "customer_id", nullable = true, referencedColumnName = "id")
+    private Customer customer;
 
 
 }
