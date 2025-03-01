@@ -2,6 +2,7 @@ package org.chefk5.pizzashop.controller;
 
 import org.chefk5.pizzashop.dto.UserRequest;
 import org.chefk5.pizzashop.dto.UserResponseDto;
+import org.chefk5.pizzashop.service.CouponService;
 import org.chefk5.pizzashop.service.CustomerService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,9 +12,11 @@ import org.springframework.web.bind.annotation.*;
 public class CustomerController {
 
     private final CustomerService customerService;
+    private final CouponService couponService;
 
-    public CustomerController(CustomerService customerService) {
+    public CustomerController(CustomerService customerService, CouponService couponService) {
         this.customerService = customerService;
+        this.couponService = couponService;
     }
 
     @GetMapping("/test")
@@ -44,5 +47,10 @@ public class CustomerController {
         customerService.deleteCustomer(id);
         return ResponseEntity.ok("Customer deleted");
 
+    }
+
+    @PostMapping("/coupon")
+    public ResponseEntity<String> assignCouponToCustomer() {
+        return ResponseEntity.ok(couponService.assignCouponToCustomer());
     }
 }
